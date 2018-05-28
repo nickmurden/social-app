@@ -1,11 +1,20 @@
 import React from 'react';
+import styled from 'styled-components';
 
-const Header = () => {
-  return (
-    <header className="App-header">
-      <h1 className="App-title">Welcome to React</h1>
-    </header>
-  );
-};
+
+const HeaderWrapper = styled.div`
+  background: papayawhip;
+`;
+
+
+class Header extends React.Component {
+  render() {
+    return (
+      <HeaderWrapper>
+        <h1>Social App</h1>
+      </HeaderWrapper>
+    );
+  }
+}
 
 export default Header;
