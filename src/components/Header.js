@@ -1,11 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
 
-
 const HeaderWrapper = styled.div`
-  background: papayawhip;
+  text-align: center;
 `;
-
 
 class Header extends React.Component {
   render() {
