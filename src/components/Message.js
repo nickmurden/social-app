@@ -32,12 +32,35 @@ const MessageWrapper = styled.div`
 `;
 
 class Message extends React.Component {
+  constructor(props, context) {
+    super(props, context);
+
+    this.state = {
+      message: { content: "" }
+    };
+
+    this.onMessageChange = this.onMessageChange.bind(this);
+    this.onClickPost = this.onClickPost.bind(this);
+
+  }
+
+  onMessageChange(event) {
+    const message = this.state.message;
+    message.content = event.target.value;
+    this.setState({message: message });
+  }
+
+  onClickPost() {
+    alert(`Posting ${this.state.message.content}`);
+  }
+
   render() {
     return (
       <MessageWrapper>
         <form>
-          <div className="message__input" aria-labelledby="" name="message" id="" contenteditable="true" spellcheck="true" role="textbox" aria-multiline="true" data-placeholder-default="Say anything">Say anything</div>
-          <button type="submit">Post</button>
+          {/* <div className="message__input" aria-labelledby="" name="message" id="" contentEditable="true" spellcheck="true" role="textbox" aria-multiline="true" data-placeholder-default="Say anything" onChange={this.onMessageChange} value={this.state.message.content}>Say anything</div> */}
+          <input className="message__input" type="text" onChange={this.onMessageChange} value={this.state.message.content} />
+          <input type="submit" onClick={this.onClickPost} value="Post" />
         </form>
       </MessageWrapper>
     );

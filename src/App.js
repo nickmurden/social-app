@@ -21,6 +21,8 @@ const AppWrapper = styled.div`
 injectGlobal`
   body {
     padding: 20px;
+    margin: 0;
+    font-family: sans-serif;
   }
 `
 
