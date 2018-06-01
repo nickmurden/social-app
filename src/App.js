@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import Header from './components/Header';
-import Message from './components/Message';
 import Footer from './components/Footer';
 import styled from 'styled-components';
 import { injectGlobal } from 'styled-components';
+
 
 const AppWrapper = styled.div`
   display: grid;
@@ -31,11 +31,15 @@ class App extends Component {
     return (
       <AppWrapper>
         <Header />
-        <Message />
+        {this.props.children}
         <Footer />
       </AppWrapper>
     );
   }
 }
+
+// App.propTypes = {
+//   children: PropTypes.object.isRequired
+// };
 
 export default App;
