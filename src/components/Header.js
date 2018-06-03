@@ -18,6 +18,8 @@ class Header extends React.Component {
         <Link to="/" activeClassName="active">Home</Link>
         {" | "}
         <Link to="about" activeClassName="active">About</Link>
+        {" | "}
+        <Link to="message" activeClassName="active">Message</Link>
       </HeaderWrapper>
     );
   }

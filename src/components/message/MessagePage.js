@@ -1,9 +1,17 @@
 import React from 'react';
 import {connect} from 'react-redux';
+import {bindActionCreators} from 'redux';
 import styled from 'styled-components';
-import * as messageActions from '../actions/messageActions';
+import * as messageActions from '../../actions/messageActions';
 
 const MessageWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 100px;
+  align-items: center;
+  font-family: 'Rufina', serif;
+  text-align: center;
   form {
     display: contents;
     width: 100%;
@@ -48,7 +56,7 @@ class Message extends React.Component {
 
   onClickPost(e) {
     e.preventDefault();
-    this.props.dispatch(messageActions.createMessage(this.state.message)); // Fire off an action
+    this.props.actions.createMessage(this.state.message); // Fire off an action
   }
 
   messageRow(message, index) {
@@ -69,9 +77,17 @@ class Message extends React.Component {
   }
 }
 
-function mapStateToProps(state, ownProps) {
+function mapStateToProps(state) {
   return {
     messages: state.messages // messages defined in root reducer
   };
 }
-export default connect(mapStateToProps)(Message);
+
+function mapDispatchToProps(dispatch) {
+  return {
+    actions: bindActionCreators(messageActions, dispatch)
+    // Wrap actions in a call to dispatch
+  };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Message);
