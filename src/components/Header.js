@@ -1,5 +1,5 @@
 import React from 'react';
-import {Link} from 'react-router';
+import {Link, IndexLink} from 'react-router';
 import styled from 'styled-components';
 
 const HeaderWrapper = styled.div`
@@ -15,7 +15,7 @@ class Header extends React.Component {
     return (
       <HeaderWrapper>
         <h1>Social App</h1>
-        <Link to="/" activeClassName="active">Home</Link>
+        <IndexLink to="/" activeClassName="active">Home</IndexLink>
         {" | "}
         <Link to="about" activeClassName="active">About</Link>
         {" | "}
